@@ -9,7 +9,6 @@ require_once('header.php');
 <html>
 <head>
     <title>index</title>
-    <link rel="stylesheet" href="styles.css">
    
 </head>
 <body>

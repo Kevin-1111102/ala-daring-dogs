@@ -4,21 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Include CSS stylesheets and other necessary resources here -->
-   <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styling.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <!-- <?php if ($userRole > 0): ?>
-                     Show the "Admin Panel" link only if the user's role is greater than 0 
-                    <li><a href="admin_panel.php">Admin Panel</a></li>
-                <?php endif; ?> -->
-                <li><a href="index.php">Homepage</a></li>
-                <li><a href="blog_overview.php">Blog Overview</a></li>
-                <li><a href="login.php">Login</a></li>
-            </ul>
-        </nav>
-    </header>
-</body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="blog_overview.php">Blog Overview</a></li>
+            <li><a href="login.php">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
 </html>
