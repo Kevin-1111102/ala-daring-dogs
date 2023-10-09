@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px; /* Increase the font size */
+    padding: 10px 20px;
+}
+
+/* Specific button styles */
+li.admin-panel a {
+    padding: 10px 60px;
+}
+
+
+
+
+/* styles.css */
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - 50px);
+    margin: 0;
+    background-color:  red;
+    padding-top: 50px;
+}
+
+body.login-body {
+    justify-content: center;
+}
+
+
+
+/* Add styles to your header to make it fixed at the top */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  z-index: 100; /* Ensures the header is on top of other content */
+}
+
+
+
+.blog_image{
+width: 250px;
+position: absolute;
+}
+.image1{
+    left: 0;
+    top: 75px;
+}
+.image2{
+    right: 25px;
+    bottom: 55px;
+}
+
+.text{
+    width: 50%;
+    color: black;
+    font-size: 20px;
+
+}
+
+.author{
+    left: 0;
+    bottom: 45px;  
+    position: absolute;
+}
+
+.image{
+    width: 150px;
+
+}
+
+.blog{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin:15px 0 ;
+}
+
+.tekst{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 150ch;
+    font-size: 18px;
+}
+
+.twee:nth-child(even) {
+    flex-direction: row-reverse; 
+    
+  }
