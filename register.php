@@ -6,8 +6,11 @@
 </head>
 <body>
 
-<!-- Include the header -->
-<?php include('header.php'); ?>
+
+<?php 
+include('header.php'); 
+include('db.php');
+?>
 <br>
 
 <div class="login-form">
@@ -25,11 +28,34 @@
         <div class="mb-3">
             <input type="email" class="form-control" name="email" placeholder="Email" required>
         </div>
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-primary" name="register">Register</button>
     </form>
     <p>Already have an account? <a href="login.php">Login</a></p>
 </div>
 
+<?php
+if (isset($_POST['register'])) {
+    // Use the database connection from db.php
+    $username = isset($_POST['username']) ? $_POST['username'] : '';
+    $password = isset($_POST['password']) ? $_POST['password'] : '';
+    $confirm_password = isset($_POST['confirm_password']) ? $_POST['confirm_password'] : '';
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
+
+    if ($password !== $confirm_password) {
+        echo "Passwords do not match. Please try again.";
+    } else {
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $role = 0; // Default role
+
+        // Prepare and execute the SQL query using $pdo
+        $sql = "INSERT INTO `user` (`username`, `email`, `password`, `role`) VALUES (?, ?, ?, ?)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$username, $email, $hashed_password, $role]);
+
+        echo "Registration successful!";
+    }
+}
+?>
 
 </body>
 </html>
