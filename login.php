@@ -1,29 +1,36 @@
 <?php
-
 include('header.php');
 include('db.php');
 
+// Check if the user is already logged in and redirect if necessary
 if (isset($_SESSION['user_id'])) {
-
     header("Location: index.php");
-         exit();
+    exit();
 }
 
 if (isset($_POST['login'])) {
-   
     $username = isset($_POST['username']) ? $_POST['username'] : '';
     $password = isset($_POST['password']) ? $_POST['password'] : '';
 
+    // Query the database to get user details
     $sql = "SELECT * FROM `user` WHERE `username` = ?";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$username]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user && password_verify($password, $user['password'])) {
-    
+        // Login successful
         $_SESSION['user_id'] = $user['id'];
-        header("Location: index.php");
-        exit();
+        
+        if ($user['role'] == 1) {
+            // User has admin role
+            header("Location: admin.php");
+            exit();
+        } else {
+            // User has a regular role, redirect to the homepage or another appropriate page
+            header("Location: index.php");
+            exit();
+        }
     } else {
         echo "Invalid username or password. Please try again.";
     }

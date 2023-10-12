@@ -1,6 +1,18 @@
 <?php require "db.php";
 
 session_start();
+
+// Check if the user is logged in and their role
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+$user_role = null;
+
+if ($user_id) {
+    // Query the database to get the user's role
+    $sql = "SELECT `role` FROM `user` WHERE `id` = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$user_id]);
+    $user_role = $stmt->fetchColumn();
+}
 ?>
 
 <!DOCTYPE html>
@@ -18,8 +30,11 @@ session_start();
             <li><a href="index.php">Home</a></li>
             <li><a href="blog_overview.php">Blog Overview</a></li>
             <?php
-            // Check if the user is logged in (you can replace this condition with your own)
             if (isset($_SESSION['user_id'])) {
+                if ($user_role == 1) {
+                    // User has admin role
+                    echo '<li><a href="admin.php">Admin</a></li>';
+                }
                 echo '<li><a href="logout.php">Logout</a></li>';
             } else {
                 echo '<li><a href="login.php">Login</a></li>';
