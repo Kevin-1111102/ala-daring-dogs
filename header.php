@@ -32,7 +32,7 @@ if ($user_id) {
             <?php
             if (isset($_SESSION['user_id'])) {
                 if ($user_role == 1) {
-                    // User has admin role
+                   
                     echo '<li><a href="admin.php">Admin</a></li>';
                 }
                 echo '<li><a href="logout.php">Logout</a></li>';

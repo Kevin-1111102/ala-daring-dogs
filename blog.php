@@ -22,7 +22,7 @@ if (isset($_GET['id'])) {
         ?>
         <body class>
             <?php if (!empty($imageUrls[0])) : ?>
-                <img class="blog_image image1" src="<?php echo $imageUrls[0]; ?>"/>
+                <img class="blog_image image1" alt="Failed to load image" src="<?php echo $imageUrls[0]; ?>"/>
             <?php endif; ?>
 
             <h1 class="title"><?php echo $data['title']; ?></h1>
@@ -30,7 +30,7 @@ if (isset($_GET['id'])) {
             <p class="text"><?php echo $data['text']; ?></p>
 
             <?php if (!empty($imageUrls[1])) : ?>
-                <div><img class="blog_image image2" src="<?php echo $imageUrls[1]; ?>"/></div>
+                <div><img class="blog_image image2" alt="Failed to load image"  src="<?php echo $imageUrls[1]; ?>"/></div>
             <?php endif; ?>
 
             <span class="author">Auteur: <?php echo $username['username']; ?></span>

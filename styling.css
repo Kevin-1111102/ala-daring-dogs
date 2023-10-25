@@ -118,3 +118,15 @@ position: absolute;
     flex-direction: row-reverse; 
     
   }
+
+  .edit{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height:95%;
+    padding: 2.5%;
+  }
+
+  .edit_text{
+    height:90%;
+  }

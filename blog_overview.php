@@ -3,7 +3,7 @@
 // Include the header.php file
 require_once('header.php');
 
-$sql = 'SELECT text, title, images, date, id FROM blog';
+$sql = 'SELECT text, title, images, date, id FROM blog ORDER BY id DESC';
 $stmt = $pdo->query($sql);
 $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -25,7 +25,7 @@ $pieces = explode(', ', $key['images']);
 $image1 = $pieces[0];
 ?>
     <div class="blog">
-        <img class="image" src="<?php echo $image1;  ?>"/>
+        <img class="image" src="<?php echo $image1;  ?> " alt="Failed to load image"/>
         <div>
         <h1 class="titel"><?php echo $key['title']; ?></h1> 
         <span class="datum"><?php echo $key['date']; ?></span>
